@@ -1,0 +1,59 @@
+Practical No: 08 Aim: RFID Module Interfacing with Raspberry Pi.
+
+
+import RPi.GPIO as b
+
+from mfrc522 import SimpleMFRC522
+reader = SimpleMFRC522() try:
+finally:
+ 
+text = input('New Data : ') print("Now place your tag to write") reader.write(text)
+print("Written")
+
+b.cleanup()
+ 
+2.	For Reading
+
+import RPi.GPIO as b
+
+from mfrc522 import SimpleMFRC522
+
+
+reader = SimpleMFRC522()
+
+try:
+
+id, text = reader.read()
+ 
+
+finally:
+ 
+print(id) print(text)
+
+b.cleanup()
+ 
+
+Requirement:
+
+1.	RFID Reader (RC 522)
+
+2.	RFID Tags or Cards
+
+3.	Jumper wires (Female to Female)
+
+
+Hardware Connectivity:
+
+RFID READER BOARD PIN	RPi PHYSICAL PIN
+SDA	24
+SCK	23
+MOSI	19
+MISO	21
+GND	6
+RST	22
+3.3V	1
+
+
+7.	MFRC522,py which is an implementation of the RFID RC255 interface
+
+# sudo pip3 install mfrc522
