@@ -1,0 +1,64 @@
+Practical No: 07
+
+
+Aim: GPS Module Interfacing with Raspberry Pi.
+
+
+Commands:
+
+Open Terminal Window and type the following command
+
+
+1.	To know to which USB port the GPS module is attached:
+
+# ls /dev/ttyUSB*
+
+2.	Select USB Port
+
+# sudo cat /dev/ttyUSB0
+
+3.	To install gpsd, make sure your Pi has an Internet connection and run the following commands:
+# sudo apt-get update
+
+# sudo apt-get install gpsd
+
+4.	You will need to enable the gpsd systemd service by running the following commands:
+
+# sudo systemctl enable gpsd.socket # sudo systemctl start gpsd.socket
+5.	After that use the gpsd command # gpsd
+6.	Try running gpsmon to get a live-streaming update of GPS data!
+
+# gpsmon
+
+cgps which gives a less detailed, but still quite nice output
+
+# cgps -s
+ 
+(NOTE:if your got command stuck use “CTRL + z” for exit that command)
+
+
+7.	You can abort gpsd by the following command
+
+# sudo killall gpsd
+
+
+Requirement:
+
+1.	GPS module.
+
+2.	USB to TTL converter.
+
+3.	Connecting jumper wires (female to female).
+
+
+Hardware Connectivity :
+
+1.	Connect the VCC Pin of GPS Module to 3.3V Pin of USB to TTL converter
+
+2.	Connect the GND Pin of GPS Module to GND Pin of USB to TTL converter
+
+3.	Connect the Tx Pin of GPS Module to Rx Pin of USB to TTL converter
+
+4.	Connect the Rx Pin of GPS Module to Tx Pin of USB to TTL converter.
+
+5.	Lastly connect the USB to TTL converter to USB port of Raspberry Pi.
